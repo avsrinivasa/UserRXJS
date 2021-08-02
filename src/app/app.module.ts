@@ -7,7 +7,9 @@ import { userreducer } from './user/user.reducer';
 import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-
+import { HttpClientModule } from '@angular/common/http';
+import { UserEffects } from './user/user.effect';
+import { UserService } from './user/user.service';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,12 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     StoreModule.forRoot({users:userreducer}),
     StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([UserEffects])
     ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

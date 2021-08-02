@@ -1,8 +1,10 @@
-<div *ngFor="let user of users$ | async as users; index as i">
-  {{user| json}} <button  (click)="deleteUser(user.id)">Delete User</button><p></p>
+
+<div *ngFor="let user of users$ | async">
+  <span><b>firstName:</b></span> {{user.firstname}} ---<span><b>LastName:</b></span> {{user.lastname}} ---<span><b>Id:</b></span> {{user.id}}
+  <button  (click)="deleteUser(user.id)">Delete User</button><p></p>
 </div>
-<input type="text" [(ngModel)] ='firstName'/>
+firstName:<input type="text" [(ngModel)] ='firstName'/>
 <p></p>
-<input type="text" [(ngModel)] ='lastName'/><p></p>
+lastName:<input type="text" [(ngModel)] ='lastName'/><p></p>
 <button  (click)="addUser()">Add User</button><p></p>
 
